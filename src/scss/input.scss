@@ -1,0 +1,23 @@
+.input__container {
+    @include grid-2;
+    margin-top : 40px;
+    min-width : 300px;
+    @include mobile;
+}
+
+@mixin inputLabel {
+    color: $orange;
+    font-family: $courier;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+.input__label {
+    @include inputLabel;
+}.input__date,.input__country {
+    @include input;
+    width : 100%;
+    margin-top : 10px;
+}.input__form {
+    display : flex;
+    flex-wrap : wrap;
+}

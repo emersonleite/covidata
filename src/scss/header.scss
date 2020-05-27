@@ -1,0 +1,22 @@
+.header {
+    align-items : center;
+    background : $grey;
+    display : flex;
+    justify-content : center;
+    min-height: 100px;
+}.header__container {
+    padding-top : 40px;
+}.header__logo {
+    width : 400px;
+    position: absolute;
+}.header__title {
+    padding : 20px 0px;
+    z-index: 999;
+    span {
+        color : $orange;
+        font-family : $lucida;
+    }
+    color : $green;
+    font-family : $courier;
+    font-size : 3rem;
+}

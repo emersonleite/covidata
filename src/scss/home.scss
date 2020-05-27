@@ -1,0 +1,69 @@
+.dataCountry__container {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    padding: 30px;
+    min-height: 80vh;
+    @include mobile;
+  }
+
+.dataCountry {
+    display : flex;
+    flex-wrap : wrap;
+}.dataCountry__dataList {
+    min-width: 350px;
+    @include data;
+    @include mobile;
+}
+.dataCountry__data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dataCountry__recovered,.dataCountry__confirmed,.dataCountry__deaths,.dataCountry__active {
+    border-left : solid 4px $green;
+    flex: 1;
+    display : inline-block;
+    padding-left : 15px;
+    padding-bottom : 0px;
+    margin-left : 15px;
+    font-family : $lucida;
+    font-size : 1.75rem;
+    color : $orange;
+    span {
+        color : $green;
+        font-family : $courier;
+        font-weight : bold;
+    }
+}
+.dataCountry__image{
+    width: 40px;
+}
+
+.dataCountry__dataList ul li {
+    padding: 15px;
+}
+
+.dataCountry__containerFlag {
+   border-radius: 30px;
+   flex: 1;
+   margin-top: 50px;
+   min-width: 300px;
+   div {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+}
+
+.dataCountry__flag {
+    border-radius: 45px;
+    width: 70%;
+}
+
+.dataCountry__none, .dataCountry__not  {
+    font-family: $lucida;
+    color: $orange;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+

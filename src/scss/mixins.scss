@@ -1,0 +1,31 @@
+@mixin grid-2 {
+  flex: 1;
+  max-width: calc(50% - 20px);
+  margin: 0px 10px;
+}
+
+@mixin data {
+  background: $grey;
+  border-radius: 15px;
+  @include grid-2;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 775px) {
+    max-width: 100%;
+  }
+}
+
+@mixin input {
+  background: $grey;
+  border: solid 5px $green;
+  border-radius: 15px;
+  color: $green;
+  font-size: 2rem;
+  height: 65px;
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 10px;
+}

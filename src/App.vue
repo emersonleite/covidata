@@ -15,14 +15,23 @@ export default {
   components: {
     TheHeader,
     TheFooter
-  },
-  created() {
-    /*  document.html.lang = "pt-br";*/
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "@/scss/variables.scss";
+@import "@/scss/mixins.scss";
+@import "@/scss/header.scss";
+@import "@/scss/footer.scss";
+@import "@/scss/input.scss";
+@import "@/scss/home.scss";
+
+body {
+  background: #000;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -33,32 +42,13 @@ li {
   list-style: none;
 }
 
-.dataCountry {
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* .dataCountry {
   height: 100vh;
   margin: auto;
-}
-
-.dataCountry__container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 30px;
-}
-
-.header {
-  background: salmon;
-}
-
-.header__container {
-  border: solid 1px blue;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.header__logo {
-  height: 50px;
-}
-
-.header__form {
-  text-align: right;
-}
+} */
 </style>

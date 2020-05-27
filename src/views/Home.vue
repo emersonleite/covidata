@@ -1,31 +1,62 @@
  <template>
-  <div class="dataCountry__container">
+  <section class="dataCountry__container">
+    <SelectionCountry />
     <div class="dataCountry">
-      <h1>{{dataSomeCountry.country}}</h1>
-      <img :src="`https://www.countryflags.io/${this.dataCountry.code}/shiny/64.png`" alt />
-      <h1>Data: {{dataSomeCountry.date}}</h1>
-      <h2>Casos de covid 19</h2>
-      <div v-if="sumRecovered">
-        <p>Latitude: {{dataSomeCountry.latitude}}</p>
-        <p>Longitude: {{dataSomeCountry.longitude}}</p>
-        <p>Total: {{sumConfirmed}}</p>
-        <p>Recuperados: {{sumRecovered}}</p>
-        <p>Ativos: {{sumActive}}</p>
-        <p>Mortos: {{sumDeaths}}</p>
+      <div class="dataCountry__dataList">
+        <ul v-if="sumRecovered">
+          <li class="dataCountry__data">
+            <img class="dataCountry__image" src="../assets/img/logo__recovered.svg" alt />
+            <p class="dataCountry__recovered">
+              Recovered:
+              <span>{{sumRecovered}}</span>
+            </p>
+          </li>
+          <li class="dataCountry__data">
+            <img class="dataCountry__image" src="../assets/img/logo__confirmed.svg" alt />
+            <p class="dataCountry__confirmed">
+              Confirmed:
+              <span>{{sumConfirmed}}</span>
+            </p>
+          </li>
+          <li class="dataCountry__data">
+            <img class="dataCountry__image" src="../assets/img/logo__deaths.svg" alt />
+            <p class="dataCountry__deaths">
+              Deaths:
+              <span>{{sumDeaths}}</span>
+            </p>
+          </li>
+          <li class="dataCountry__data">
+            <img class="dataCountry__image" src="../assets/img/logo__active.svg" alt />
+            <p class="dataCountry__active">
+              Active:
+              <span>{{sumActive}}</span>
+            </p>
+          </li>
+        </ul>
+        <div v-else-if="dataSomeCountry.country">
+          <p class="dataCountry__not">No data was founded ...</p>
+        </div>
+        <div class="dataCountry__none" v-else>
+          <p>Choose the country and the date above</p>
+        </div>
       </div>
-      <div v-else-if="dataSomeCountry.country">
-        <p>Não há dados para esse país.</p>
-      </div>
-      <div v-else>
-        <p>Escolha o país acima</p>
+      <div class="dataCountry__containerFlag" v-if="dataSomeCountry.country">
+        <div>
+          <img
+            class="dataCountry__flag"
+            :src="`svg/${dataCountry.code.toLowerCase()}.svg`"
+            :alt="dataCountry.country"
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
  
  <script>
 import { mapState } from "vuex";
 import axios from "axios";
+import SelectionCountry from "@/components/SelectionCountry.vue";
 import sum from "../functions/sumValuesObjectIntoArray.js";
 export default {
   data() {
@@ -36,6 +67,9 @@ export default {
       sumDeaths: 0,
       sumActive: 0
     };
+  },
+  components: {
+    SelectionCountry
   },
   methods: {
     getDataCountry(url) {

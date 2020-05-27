@@ -1,16 +1,27 @@
   <template>
-  <form class="header__form" @change="setCountryToState">
-    <label for="date"></label>
-    <input type="date" name="date" id="date" value="22-05-2020" required v-model="date" />
-    <label for="country">Pais</label>
-    <select name="country" id="country" @change="getCode" v-model="country">
-      <option
-        v-for="(country, index) in list"
-        id="option"
-        :value="`${country.name}${country.alpha2code}`"
-        :key="index"
-      >{{country.name}} - {{country.alpha2code}}</option>
-    </select>
+  <form class="input__form" @change="setCountryToState">
+    <div class="input__container">
+      <label class="input__label" for="country">Choose your Country</label>
+      <select
+        class="input__country"
+        name="country"
+        id="country"
+        @change="getCode"
+        v-model="country"
+      >
+        <option value=" " disabled selected>Escolha um país</option>
+        <option
+          v-for="(country, index) in list"
+          id="option"
+          :value="`${country.name}${country.alpha3code}`"
+          :key="index"
+        >{{country.name}} - {{country.alpha3code}}</option>
+      </select>
+    </div>
+    <div class="input__container">
+      <label class="input__label" for="date">Choose the date</label>
+      <input class="input__date" type="date" name="date" id="date" required v-model="date" />
+    </div>
   </form>
 </template>
   
@@ -52,8 +63,8 @@ export default {
     setCountryToState() {
       if (this.date && this.country) {
         this.$store.commit("UPDATE_DATA_COUNTRY", {
-          country: this.country.slice(0, -2),
-          code: this.country.slice(-2),
+          country: this.country.slice(0, -3),
+          code: this.country.slice(-3),
           date: this.date
         });
       }
