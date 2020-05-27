@@ -1,4 +1,5 @@
  <template>
+  <!-- Home -->
   <section class="dataCountry__container">
     <SelectionCountry />
     <div class="dataCountry">
