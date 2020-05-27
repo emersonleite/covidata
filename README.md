@@ -1,4 +1,4 @@
-# bodas
+# Covidata
 
 ## Project setup
 ```
