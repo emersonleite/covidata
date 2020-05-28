@@ -24,16 +24,16 @@
   }
 }
 .footer__social {
-  border: solid 2px $grey;
+  border: solid 3px $grey;
   border-radius: 5px;
   color: $grey;
   cursor: pointer;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-family: $lucida;
-  width: 35px;
-  height: 35px;
-  padding-top: 5px;
+  width: 45px;
+  height: 45px;
+  padding-top: 9px;
   text-align: center;
   &:hover{
     color: white;
